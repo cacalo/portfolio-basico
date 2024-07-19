@@ -1,12 +1,30 @@
 const proyectos = [
   {
+    titulo: "Generador de listas de precios",
+    descripcion:
+      "Sistema web que permite a un encargado de cuentas generar listas de precios personalizadas para sus clientes, permitiendo alterar los descuentos y recargos por cliente y por producto, generando PDFs para cada cliente.",
+    link: "",
+    fecha: "01/07/2024",
+    imagen: "NDA.png",
+    tecnologias: ["HTMl","CSS","PDF","Google Sheets","Appscript"],
+  },
+  {
+    titulo: "Curso juego online multiplayer con Angular 18 + NodeJs",
+    descripcion:
+      "Curso largo y completo: Creamos una juego online multiplayer, de principio a fin sin saltearnos nada usando Angular 18 y NodeJs con Socket.IO.",
+    link: "https://www.youtube.com/playlist?list=PL3Qv7aeTNq0dyuTX0bAO5DVuFe8w93f0z",
+    fecha: "06/06/2024",
+    imagen: "curso-ta-te-ti.png",
+    tecnologias:["Angular 18","Typescript","SCSS","HTML","NodeJs","Socket.IO","Express"],
+  },
+  {
     titulo: "CRM personalizado",
     descripcion:
       "CRM creado desde cero para administrar la relación con los clientes de una empresa de seguros. Incluye la gestión de leads desde distintos roles, parametrización viva, roles y permisos. El proyecto está actualmente en curso.",
     link: "",
     fecha: "01/12/2023",
     imagen: "NDA.png",
-    tecnologias: ["Angular",""],
+    tecnologias: ["Angular"],
   },
   {
     titulo: "Curso Front end con Angular",
@@ -15,7 +33,7 @@ const proyectos = [
     link: "https://www.youtube.com/playlist?list=PL3Qv7aeTNq0eChWdLTbxelz-5d6ZTBp3i",
     fecha: "01/06/2023",
     imagen: "curso_angular_1.png",
-    tecnologias: ["HTML","CSS","Javascript"],
+    tecnologias: ["Angular 16","HTML","CSS","Javascript"],
   },
   {
     titulo: "Conector Facebook Ads → Engage CRM",
@@ -255,11 +273,11 @@ const informacionPersonal = {
     ],
   ],
   idiomas: [
-    ["Español", "Nativo"],["Inglés", "Muy bueno"],["Japonés", "Principiante"],
+    ["Español", "Nativo"],["Inglés", "Muy bueno"],
   ],
   tecnologias: [
-    ["Html", 9],["Css", 8],["Javascript", 9],["Typescript", 8],["Angular", 8
-    ],["Ionic",7],["Node",6],["Python",5],["C#",3]
+    ["Html", 9],["Css", 8],["Javascript", 9],["Typescript", 8],["Angular", 9],
+    ["Ionic",7],["Node",6],["Python",5],["C#",3]
   ],
   redes: [
     ["github", "https://github.com/cacalo"],
