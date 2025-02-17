@@ -67,7 +67,7 @@ const makeTecnologias = () => {
       <progress max="10" value="${dato[1]}" class="no-print">
     `
     nuevoTecnologias.innerHTML += `
-    <span>${dato[0]}</span>
+    <span class="only-print">${dato[0]}</span>
     `
   })
   aside.appendChild(nuevoTecnologias);
