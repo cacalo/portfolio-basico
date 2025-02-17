@@ -196,11 +196,11 @@ progress {
   cursor: pointer;
 }
 
-#redes img:hover{
+#redes img:hover, #descargarPDF:hover{
   filter: invert(1);
 }
 
-#redes img{
+#redes img {
   aspect-ratio: 1;
   height: 20px;
   filter: invert(0.8);
@@ -214,6 +214,17 @@ footer{
 footer a{
   color: var(--color-texto);
   background-color: unset;
+}
+
+#descargarPDF{
+  width: 40px;
+  border: unset;
+  background-color: unset;
+  padding: 0;
+  margin: auto;
+  display: block;
+  filter: invert(0.8);
+  transition: 0.5s;
 }
 
 @media(max-width:650px){

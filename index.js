@@ -1,5 +1,7 @@
 const proyectosContainer = document.getElementById("proyectosContainer");
 const aside = document.getElementsByTagName("aside")[0];
+const descargarPDFBoton = document.getElementById("descargarPDF");
+descargarPDFBoton.addEventListener("click",()=> descargarPDF(document.body))
 
 const getTecnologias = (tecnologias) => {
   let res = "";
@@ -37,7 +39,7 @@ const makePresentacion = () => {
     </div>
     `
   })
-  aside.appendChild(nuevaPresentación);
+  aside.insertBefore(nuevaPresentación,descargarPDFBoton);
 }
 
 const makeIdiomas = () => {
@@ -51,7 +53,7 @@ const makeIdiomas = () => {
     </div>
     `
   })
-  aside.appendChild(nuevoIdiomas);
+  aside.insertBefore(nuevoIdiomas,descargarPDFBoton);
 }
 
 const makeTecnologias = () => {
@@ -70,7 +72,7 @@ const makeTecnologias = () => {
     <span class="only-print">${dato[0]}</span>
     `
   })
-  aside.appendChild(nuevoTecnologias);
+  aside.insertBefore(nuevoTecnologias,descargarPDFBoton);
 }
 
 const makeRedes = () => {
@@ -90,7 +92,7 @@ const makeRedes = () => {
       `
     }
     })
-  aside.appendChild(nuevoRedes);
+  aside.insertBefore(nuevoRedes,descargarPDFBoton);
 }
 
 const getIconoRed = (red)=>{
@@ -111,6 +113,26 @@ const getIconoRed = (red)=>{
     default:
       return urlBase+"globe-solid.svg";
   }
+}
+
+async function descargarPDF(element){
+  descargarPDFBoton.style.display = "none";
+  console.log("A ver que recibí",element)
+  const params = {
+    margin: 0,
+    filename: "Calo PuntoJson.pdf",
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: {
+      unit: 'px',
+      format: [document.body.getBoundingClientRect().height/2 , document.body.getBoundingClientRect().width],
+      orientation: 'portrait',
+      floatPrecision: 512,
+    },
+    pagebreak: { mode: 'css' },
+  };
+  await html2pdf().set(params).from(element).save();//Lo guardo como PDF
+  descargarPDFBoton.style.display = "inline";
 }
 
 //Ejecución
