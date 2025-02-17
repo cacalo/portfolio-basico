@@ -118,6 +118,7 @@ a.disabled{
 .tarjeta{
   background-color: var(--color-fondo-tarjeta) ;
   border-radius: 5px;
+  break-inside: avoid;
 }
 
 .tecnologia{
@@ -226,5 +227,74 @@ footer a{
   body{
     grid-template-columns: 1fr;
     grid-template-areas: "header" "aside" "main" "footer";
+  }
+}
+
+.only-print{
+  display: none;
+}
+
+@media print{
+  :root{
+    --color-text-titulos: black;
+    --color-texto: black;
+    --color-fondo: white;
+    --color-acento: #E6E4C6;
+    --color-fondo-tarjeta: #ffffff27;
+  }
+  .no-print{
+    display: none !important;
+  }
+  .only-print{
+    display: block;
+  }
+  body{
+    display: block;
+  }
+  header{
+    background-image: unset;
+    background-color: unset;
+    >div{
+      padding: 0px;
+    }
+    h1, p{
+      margin: 5px 0;
+    }
+  }
+  #redes{
+    display: unset;
+  }
+  .tarjeta{
+    -webkit-box-shadow: unset;
+    box-shadow: unset;
+  }
+  .tarjeta.proyecto{
+    border: unset;
+    border-bottom: 1px solid black;
+    border-radius: unset;
+  }
+  aside{
+    border: none !important;
+    >div{
+      padding: 0;
+    }
+    p{
+      margin: 0;
+    }
+    img{
+      float: inline-end;
+      max-height: 200px;
+      translate: 0 -80px;
+      /* position: absolute;
+      top: 20px;
+      right: 20px;
+      max-height: 200px; */
+    }
+    #redes{
+      margin-top: 5px;
+    }
+  }
+  h1{
+    font-size: xx-large;
   }
 }

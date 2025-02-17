@@ -10,14 +10,14 @@ const getTecnologias = (tecnologias) => {
 };
 
 const getProyecto = (proyecto) => `
-  <img src='img/proyectos/${proyecto.imagen}' alt='${proyecto.titulo} loading="lazy"'>
+  <img src='img/proyectos/${proyecto.imagen}' alt='${proyecto.titulo} loading="lazy"' class="no-print">
   <div>
     <h3>${proyecto.titulo}</h3>
     <p>${proyecto.descripcion}</p>
     <p>Tecnologías: ${getTecnologias(proyecto.tecnologias)}</p>
   </div>
 
-  <a ${proyecto.link ? 'href='+proyecto.link : "class=disabled"} target="_blank">Ver proyecto</a>
+  <a ${proyecto.link ? 'href='+proyecto.link : "class='disabled no-print'"} target="_blank" class="no-print">Ver proyecto</a>
 `;
 
 const makePresentacion = () => {
@@ -57,13 +57,17 @@ const makeIdiomas = () => {
 const makeTecnologias = () => {
   const nuevoTecnologias = document.createElement("div");
   nuevoTecnologias.id = "tecnologias";
+  nuevoTecnologias.innerHTML += `<span>Tecnologías: </span>`
   informacionPersonal.tecnologias.forEach(dato => {
     nuevoTecnologias.innerHTML += `
-    <div>
+    <div class="no-print">
       <span>${dato[0]}</span>
       <span>${dato[1]}</span>
     </div>
-      <progress max="10" value="${dato[1]}">
+      <progress max="10" value="${dato[1]}" class="no-print">
+    `
+    nuevoTecnologias.innerHTML += `
+    <span>${dato[0]}</span>
     `
   })
   aside.appendChild(nuevoTecnologias);
@@ -75,9 +79,14 @@ const makeRedes = () => {
   informacionPersonal.redes.forEach(dato => {
     if(dato[1]!== ""){
       nuevoRedes.innerHTML += `
-      <a href=${dato[1]} target="_blank">
+      <a href=${dato[1]} target="_blank" class="no-print">
         <img src=${getIconoRed(dato[0])}>
       </a>
+      `
+      nuevoRedes.innerHTML += `
+      <p target="_blank" class="only-print">
+        ${dato[0]}: ${dato[1]}
+      </p>
       `
     }
     })
@@ -87,17 +96,17 @@ const makeRedes = () => {
 const getIconoRed = (red)=>{
   const urlBase = "img/iconos/";
   switch(red){
-    case "instagram":
+    case "Instagram":
       return urlBase+"instagram.svg";
-    case "linkedin":
+    case "Linkedin":
       return urlBase+"linkedin.svg";
-    case "facebook":
+    case "Facebook":
       return urlBase+"square-facebook.svg";
-    case "twitter":
+    case "Twitter":
       return urlBase+"twitter.svg";
-    case "youtube":
+    case "Youtube":
       return urlBase+"youtube.svg";
-    case "github":
+    case "Github":
       return urlBase+"github.svg";
     default:
       return urlBase+"globe-solid.svg";
@@ -105,13 +114,13 @@ const getIconoRed = (red)=>{
 }
 
 //Ejecución
+makePresentacion();
+makeIdiomas();
+makeTecnologias();
+makeRedes();
 proyectos.forEach((proyecto) => {
   const nuevoProyecto = document.createElement("div");
   nuevoProyecto.classList = "proyecto tarjeta";
   nuevoProyecto.innerHTML = getProyecto(proyecto);
   proyectosContainer.appendChild(nuevoProyecto);
 });
-makePresentacion();
-makeIdiomas();
-makeTecnologias();
-makeRedes();
