@@ -241,10 +241,6 @@ footer a{
   }
 }
 
-.only-print{
-  display: none;
-}
-
 @media print{
   :root{
     --color-text-titulos: black;
@@ -255,9 +251,6 @@ footer a{
   }
   .no-print{
     display: none !important;
-  }
-  .only-print{
-    display: block;
   }
   body{
     display: block;
@@ -307,5 +300,11 @@ footer a{
   }
   h1{
     font-size: xx-large;
+  }
+}
+
+@media screen {
+  .only-print{
+    display: none;
   }
 }
